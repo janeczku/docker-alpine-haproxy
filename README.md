@@ -1,5 +1,7 @@
 # Haproxy Alpine Linux image
 
+[![](https://badge.imagelayers.io/janeczku/alpine-haproxy:latest.svg)](https://imagelayers.io/?images=janeczku/alpine-haproxy:latest 'Get your own badge on imagelayers.io') [![Docker Pulls](https://img.shields.io/docker/pulls/janeczku/alpine-haproxy.svg)](https://hub.docker.com/r/janeczku/alpine-haproxy/)
+
 A micro-image providing Haproxy based on [Alpine Linux](https://hub.docker.com/_/alpine/). 90% smaller than the official haproxy docker image.
 
 [Github source](https://github.com/janeczku/docker-alpine-haproxy)
