@@ -8,8 +8,8 @@ A micro-image providing Haproxy based on [Alpine Linux](https://hub.docker.com/_
 
 ## Supported tags
 
--	[`1.5.15`, `1.5`
--	[`1.6.2`, `1.6`, `latest`
+-	`1.5.15`, `1.5`
+-	`1.6.2`, `1.6`, `latest`
 
 ## What is HAProxy?
 
