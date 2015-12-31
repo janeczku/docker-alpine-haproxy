@@ -3,8 +3,10 @@ FROM alpine:3.2
 ENV HAPROXY_MAJOR 1.5
 ENV HAPROXY_VERSION 1.5.14
 
-RUN apk add --update haproxy \
-  && rm -rf /etc/haproxy/haproxy.cfg \
-  && rm -rf /var/cache/apk/*
+RUN apk update \
+	&& apk upgrade \
+	&& apk add haproxy \
+	&& rm -rf /etc/haproxy/haproxy.cfg \
+	&& rm -rf /var/cache/apk/*
 
 CMD [ "/usr/sbin/haproxy", "-f", "/etc/haproxy/haproxy.cfg", "-db" ]

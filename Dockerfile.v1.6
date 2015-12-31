@@ -1,10 +1,9 @@
 FROM alpine:3.2
 
 ENV HAPROXY_MAJOR 1.6
-ENV HAPROXY_VERSION 1.6.2
+ENV HAPROXY_VERSION 1.6.3
 
 COPY build.sh /build.sh
-RUN chmod 755 /build.sh
 RUN /build.sh
 
 CMD [ "/usr/sbin/haproxy", "-f", "/etc/haproxy/haproxy.cfg", "-db" ]

@@ -9,7 +9,9 @@ A micro-image providing Haproxy based on [Alpine Linux](https://hub.docker.com/_
 ## Supported tags
 
 -	`1.5.14`, `1.5`
--	`1.6.2`, `1.6`, `latest`
+-	`1.6.3`, `1.6`, `latest`
+
+*1.6 images come with [Lua API](http://blog.haproxy.com/2015/03/12/haproxy-1-6-dev1-and-lua/) support.*
 
 ## What is HAProxy?
 
