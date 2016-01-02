@@ -9,7 +9,7 @@ $(VERSIONS): MAJOR = $(firstword $(subst _, ,$@))
 $(VERSIONS): MINOR = $(lastword $(subst _, ,$@))
 $(VERSIONS):
 	@echo "=> building $(IMAGE):$(MAJOR)"
-	docker build -t $(IMAGE):$(MAJOR) -f Dockerfile.v$(MAJOR) .
+	docker build --build-arg HAPROXY_VERSION=$(MINOR) -t $(IMAGE):$(MAJOR) -f Dockerfile.v$(MAJOR) .
 	docker tag -f $(IMAGE):$(MAJOR) $(IMAGE):$(MINOR)
 	@echo "=> pushing $(IMAGE):$(MAJOR)"
 	docker push $(IMAGE):$(MAJOR)
@@ -17,6 +17,6 @@ $(VERSIONS):
 
 tag-latest: MAJOR = $(firstword $(subst _, ,$(word $(words $(VERSIONS)),$(VERSIONS))))
 tag-latest:
-	docker tag -f $(IMAGE):$(MAJOR) $(IMAGE):latest
 	@echo "=> pushing $(IMAGE):latest"
+	docker tag -f $(IMAGE):$(MAJOR) $(IMAGE):latest
 	docker push $(IMAGE):latest
