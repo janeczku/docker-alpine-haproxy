@@ -15,7 +15,7 @@ else
 fi
 
 # Compile Haproxy
-wget http://www.haproxy.org/download/1.6/src/haproxy-${HAPROXY_VERSION}.tar.gz
+wget http://www.haproxy.org/download/${HAPROXY_MAJOR}/src/haproxy-${HAPROXY_VERSION}.tar.gz
 tar -xzf haproxy-*.tar.gz
 cd haproxy-*
 
