@@ -1,16 +1,17 @@
 # HAProxy Alpine Linux image
 
-[![](https://badge.imagelayers.io/janeczku/alpine-haproxy:1.5.svg)](https://imagelayers.io/?images=janeczku/alpine-haproxy:1.5 'Get your own badge on imagelayers.io') [![Docker Pulls](https://img.shields.io/docker/pulls/janeczku/alpine-haproxy.svg)](https://hub.docker.com/r/janeczku/alpine-haproxy/)
+[![](https://images.microbadger.com/badges/image/janeczku/alpine-haproxy.svg)](https://microbadger.com/images/janeczku/alpine-haproxy) [![Docker Pulls](https://img.shields.io/docker/pulls/janeczku/alpine-haproxy.svg)](https://hub.docker.com/r/janeczku/alpine-haproxy/)
 
-A micro-image providing HAProxy based on [Alpine Linux](https://hub.docker.com/_/alpine/). 90% smaller than the official HAProxy docker image.
+A micro image providing HAProxy based on [Alpine Linux](https://hub.docker.com/_/alpine/).
 
 [Github source](https://github.com/janeczku/docker-alpine-haproxy)
 
 ## Supported tags
 
--	`1.5.14`, `1.5`
--	`1.6.3`, `1.6`, `latest`
--	`1.6.3-lua`, `1.6-lua` *supports HAProxy [Lua scripting](http://blog.haproxy.com/2015/03/12/haproxy-1-6-dev1-and-lua/)*
+-	`1.6.11`, `1.6`
+-	`1.6.11-lua`, `1.6-lua`
+-	`1.7.3`, `1.7`, `latest`
+-	`1.7.3-lua`, `1.7-lua`
 
 ## What is HAProxy?
 
@@ -24,26 +25,26 @@ Since no two users of HAProxy are likely to configure it exactly alike, this ima
 
 Please refer to [upstream's excellent (and comprehensive) documentation](https://cbonte.github.io/haproxy-dconv/) on the subject of configuring HAProxy for your needs.
 
-It is also worth checking out the [`examples/` directory from upstream](http://www.haproxy.org/git?p=haproxy-1.5.git;a=tree;f=examples).
+It is also worth checking out the [`examples/` directory from upstream](http://www.haproxy.org/git?p=haproxy-1.7.git;a=tree;f=examples).
 
 Note: Many configuration examples propose to put `daemon` into the `global` section to run HAProxy as daemon. Do **not** configure this or the Docker container will exit immediately after launching because the HAProxy process would go into the background.
 
 ## Create a `Dockerfile`
 
 ```dockerfile
-FROM janeczku/alpine-haproxy:1.6
-COPY haproxy.cfg /etc/haproxy/haproxy.cfg
+FROM janeczku/alpine-haproxy:1.7
+COPY haproxy.cfg /etc/haproxy
 ```
 
 Build and run:
 
 ```console
-$ docker build -t my-haproxy .
-$ docker run -d --name my-running-haproxy my-haproxy
+$ docker build -t repo/haproxy .
+$ docker run -d repo/haproxy
 ```
 
 ## Directly via bind mount
 
 ```console
-$ docker run -d --name my-running-haproxy -v /path/to/haproxy.cfg:/etc/haproxy/haproxy.cfg:ro janeczku/alpine-haproxy:1.6
+$ docker run -d -v /path/to/haproxy.cfg:/etc/haproxy/haproxy.cfg:ro janeczku/alpine-haproxy:1.7
 ```
